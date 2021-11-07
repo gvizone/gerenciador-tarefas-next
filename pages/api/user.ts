@@ -2,6 +2,7 @@ import md5 from "md5";
 import { NextApiRequest, NextApiResponse } from "next";
 import { validatePostRequest } from "../../helpers/request-validators";
 import { validateIfEmailExists, validateUser } from "../../helpers/user-validators";
+import { corsPolicy } from "../../middlewares/corsPolicy";
 import { dbConnect } from "../../middlewares/dbConnect";
 import { DefaultReturn } from "../../models/DefaultReturn";
 import { User } from "../../models/User";
@@ -27,4 +28,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<DefaultReturn>)
   }
 }
 
-export default dbConnect(handler);
+export default corsPolicy(dbConnect(handler));

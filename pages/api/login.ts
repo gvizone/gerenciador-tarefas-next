@@ -6,6 +6,7 @@ import { DefaultReturn } from '../../models/DefaultReturn';
 import { User } from '../../models/User';
 import { validatePostRequest } from '../../helpers/request-validators';
 import jwt from 'jsonwebtoken';
+import { corsPolicy } from '../../middlewares/corsPolicy';
 
 type LoginRequest = {
   login: string
@@ -42,4 +43,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<DefaultReturn |
   }
 }
 
-export default dbConnect(handler);
+export default corsPolicy(dbConnect(handler));
