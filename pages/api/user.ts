@@ -11,6 +11,7 @@ import { UserModel } from "../../models/UserModel";
 const handler = async (req: NextApiRequest, res: NextApiResponse<DefaultReturn>) => {
   try {
     validatePostRequest(req);
+
     const user: User = req.body;
     validateUser(user);
 

@@ -8,14 +8,14 @@ import { validatePostRequest } from '../../helpers/request-validators';
 import jwt from 'jsonwebtoken';
 import { corsPolicy } from '../../middlewares/corsPolicy';
 
-type LoginRequest = {
-  login: string
+interface LoginRequest {
+  login: string,
   password: string
 }
 
-type LoginResponse = {
-  name: string
-  email: string
+interface LoginResponse {
+  name: string,
+  email: string,
   token: string
 }
 

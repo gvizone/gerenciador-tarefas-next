@@ -1,5 +1,5 @@
-export type TaskRequest = {
-  name: string
-  finishPrevisionDate: Date
+export interface TaskRequest {
+  name: string,
+  finishPrevisionDate: Date,
   finishDate: Date
 }
